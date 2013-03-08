@@ -68,9 +68,10 @@ class TextLayer {
 		write(buf, x, y);
 	}
 	
-	void loadFont(const void* data, uint length = 192) {
+	uint loadFont(const void* data, uint length = 192) {
 		BitUnpackParams params = {length, 1, 4, 0};
 		bitUnpack(data, tilesets + bgControl.charBaseBlock, &params);
+		return length;
 	}
 	
 	template<unsigned length>

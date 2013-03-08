@@ -105,7 +105,7 @@ struct MultiPaletteTile {
 };
 
 struct Tile {
-	unsigned data[16];
+	ubyte data[64];
 };
 
 struct TileEntry {
@@ -137,7 +137,7 @@ typedef unsigned AffineScreenBaseBlock[512];
 typedef TileEntry ScreenRow[32];
 typedef ScreenRow ScreenBaseBlock[32];
 
-typedef unsigned CharBaseBlock[0x1000];
+typedef Tile CharBaseBlock[256];
 
 /**************************
 **Register/data locations**
