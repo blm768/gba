@@ -79,7 +79,8 @@ class Filesystem {
 			}
 		}
 		//The file wasn't found
-		fatalError(strcat("Unable to find file ", filename));
+		char buf[128] = "Unable to find file ";
+		fatalError(strncat(buf, filename, sizeof(buf)));
 		return f;
 	}
 	

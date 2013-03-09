@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-enum WaveVolume {wave50, wave100};
+enum WaveVolume {volume50, volume100};
 
 struct MasterSoundControl {
 	uint lVolume: 3;
@@ -67,5 +67,12 @@ typedef byte WaveFIFO[4];
 WaveFIFO* const waveFIFOs = (WaveFIFO*)0x40000A0;
 
 #define sound (*(MasterSoundControl*)0x4000080)
+
+inline void initChannel(size_t channel, void* buf) {
+	//The DMA channel and sound channel are made to match.
+	//To consider: allow them to be set manually?
+	initSoundDMA(channel, buf, waveFIFOs[channel]);
+	
+}
 
 #endif

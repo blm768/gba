@@ -45,6 +45,7 @@ inline void dmaClearParams(unsigned channel) {
 	memset(&dmaChannels[channel].params, 0, sizeof(DMAParams));
 };
 
+//To do: make more like memcpy
 inline void dmaCopy(const void* src, void* dest, unsigned short count, DMAChunkSize chunkSize) {
 	dmaClearParams(3);
 	dma3.src = src;
@@ -59,6 +60,7 @@ inline void dmaCopy(const void* src, void* dest, unsigned short count, DMAChunkS
 	dma3.params = params;
 };
 
+//To do: move.
 inline void initSoundDMA(unsigned channel, const void* src, void* dest) {
 	dmaClearParams(channel);
 	dmaChannels[channel].src = src;
