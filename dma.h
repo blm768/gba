@@ -55,28 +55,8 @@ inline void dmaCopy(const void* src, void* dest, unsigned short count, DMAChunkS
 	DMAParams params;
 	memset(&params, 0, sizeof(params));
 	params.chunkSize = chunkSize;
-	params.enable = true;
 	
 	dma3.params = params;
-};
-
-//To do: move.
-inline void initSoundDMA(unsigned channel, const void* src, void* dest) {
-	dmaClearParams(channel);
-	dmaChannels[channel].src = src;
-	dmaChannels[channel].dest = dest;
-	
-	DMAParams params;
-	memset(&params, 0, sizeof(params));
-	params.destAdjust = destFixed;
-	params.repeat = true;
-	params.chunkSize = word;
-	params.timingMode = onRefresh;
-	params.raiseInterrupt = true;
-	params.enable = true;
-	
-	dmaChannels[channel].params = params;
-	
 };
 
 #endif

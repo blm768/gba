@@ -6,6 +6,10 @@
 struct Timer {
 	ushort value;
 	
+	enum {
+		max = (1 << 16) - 1,
+	};
+	
 	uint frequency: 2;
 	bool cascade: 1;
 	
@@ -14,7 +18,7 @@ struct Timer {
 	
 	public:
 	bool raiseInterrupt: 1;
-	bool enabled: 1;
+	bool enable: 1;
 };
 
 Timer* const timers = (Timer*)0x4000100;

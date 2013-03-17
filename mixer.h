@@ -9,7 +9,15 @@ struct Sound {
 	size_t length;
 };
 
-inline void initMixer() {
+class Mixer {
+	this();
+	
+	enum {
+		maxMusic = 4,
+		maxSound = 2,
+	}
+	
+	private:
 	
 }
 
